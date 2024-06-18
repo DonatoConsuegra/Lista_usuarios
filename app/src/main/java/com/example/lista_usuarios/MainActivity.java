@@ -38,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        JSONObject JSONlista = new JSONObject(result);
+        JSONArray JSONlistaUsuarios= JSONlista.getJSONArray("data");
+        lstUsuarios = Usuario.JsonObjectsBuild(JSONlistaUsuarios);
+        AdaptadorUsuario adapatorUsuario = new AdaptadorUsuario(this, lstUsuarios);
+        lstOpciones.setAdapter(adapatorUsuario);
 
     }
 }
